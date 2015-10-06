@@ -8,7 +8,7 @@ GO_TEST=GOPATH=${GOPATH_LINK} go test
 GO_MAIN=server.go
 
 test: install_deps
-	${GO_TEST} ${TEST_PATHS}
+	@${GO_TEST} ${TEST_PATHS}
 	@echo "Done"
 
 install_deps:

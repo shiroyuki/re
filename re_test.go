@@ -2,7 +2,21 @@ package re
 
 import "fmt"
 import "testing"
-import "../tameshigiri"
+import "github.com/shiroyuki/tameshigiri"
+
+func ExampleReHasAnyAndSearchOne() {
+    content := "..."
+    pattern := Compile("Mr (?P<name>[^\\s]+) finished the assignment for this term.")
+    result  := pattern.SearchOne(content)
+
+    if result.HasAny() {
+        fmt.Println("Not found.")
+    }
+
+    name := result.Key("name")
+
+    fmt.Println("Found:", name)
+}
 
 func localTestReSearchOne(
     t            *testing.T,
